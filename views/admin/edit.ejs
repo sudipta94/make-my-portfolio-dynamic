@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<!-- importent meta tags-->
+	<meta charset="utf-8">
+	<meta http-equiv="Content-Type" content="text/html; charset = utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- Title-->
+	<title>Sudipta's portal</title>
+	<!-- icon-->
+	<link rel="icon" href="/pic/icon.ico">
+	<!-- bootstrap-->
+	<link rel="stylesheet" href="/css/033%20bootstrap.css">
+	<!--font awasome-->
+	<link rel="stylesheet" href="/css/font-awesome/css/font-awesome.min.css">
+	<!--google font-->
+	<link href="https://fonts.googleapis.com/css?family=Bree+Serif|Indie+Flower|Varela+Round&display=swap" rel="stylesheet">
+	<!--owl carousel-->
+	<link href="/css/owl.carousel.min.css " rel="stylesheet">
+	<link href="/css/owl.theme.default.min.css" rel="stylesheet">
+	<!-- main css-->
+	<link rel="stylesheet" href="/css/admin.css">
+	<!--responsive-->
+	<link rel="stylesheet" href="/css/responsive.css">
+	<!--animation-->
+	<link rel="stylesheet" href="/css/animate.css">
+
+
+</head>
+
+<body>
+	<!-- About section-->
+	<section id="about">
+		<div class="content-box-lg">
+			<div class="container wow slideInLeft">
+				<div class="row ">
+					<div class="col-md-12" id="about_hr">
+						<h2 id="aboutt">Update</h2>
+						<hr>
+					</div>
+				</div>
+			</div>
+			
+			<div class="container edit_page" id="about_sub">
+			<!--Education-->
+			<% if(up_edu) { %>
+				<div class="row wow slideInRight">
+				<h2>Education/ Experience</h2>
+				<form method="POST" action="/admin/update-degree">
+					<div class="col-md-5">
+						<label for="usr">Degree:</label>
+  						<input type="text" name="degree" value="<%=education.degree%>" class="form-control" id="usr" required>
+					</div>
+					<div class="col-md-5">
+						<label for="usr">College Name:</label>
+  						<input type="text" name="clg_name" value="<%=education.clg_name%>" class="form-control" id="usr" required>
+					</div>
+					<div class="col-md-2">
+						<label for="usr"></label>
+						<input type="hidden" value="<%= education.id %>" name="id">
+						<button class="btn btn-send btn-outline-info btn-rounded btn-block z-depth-0 my-4 waves-effect" type="submit">Update</button>
+					</div>
+					</form>
+				</div>
+				<% } else if(up_pro) { %>
+				<!--project-->
+				<div class="row wow slideInRight">
+				<h2>Project</h2>
+				<form method="POST" action="/admin/update-project" enctype="multipart/form-data">
+					<div class="col-md-2">
+						<label for="usr">url</label>
+						<input type="file" name="image" class="form-control">
+					</div>
+					<div class="col-md-3">
+						<label for="usr">Title:</label>
+  						<input type="text" value="<%=project.project_name%>" name="project_name" class="form-control" id="usr" required>
+					</div>
+					<div class="col-md-4">
+						<label for="materialContactFormMessage">Description</label>
+						<textarea id="materialContactFormMessage" name="project.details" class="form-control md-textarea" rows="3" required><%=project.project_details%></textarea>
+					</div>
+					<div class="col-md-2">
+						<label for="usr">Link:</label>
+  						<input type="text" value="<%=project.project_link%>" name="project_link" class="form-control" id="usr" required>
+					</div>
+					<div class="col-md-1">
+						<label for="usr"></label>
+						<input type="hidden" value="<%= project.id %>" name="id">
+						<input type="hidden" value="<%= project.project_pic %>" name="image_url">
+						<button class="btn btn-send btn-outline-info btn-rounded btn-block z-depth-0 my-4 waves-effect" type="submit">Edit</button>
+					</div>
+					</form>
+				</div>
+				<% } else if(up_blg) { %>
+				<!-- Blog edit-->
+				<div class="row wow slideInRight">
+					<h2>Blog</h2>
+					<form method="POST" action="/admin/update-blog" enctype="multipart/form-data">
+						<div class="col-md-2">
+							<label for="usr">url</label>
+							<input type="file" name="image" class="form-control">
+						</div>
+						<div class="col-md-3">
+							<label for="usr">Title:</label>
+							<input type="text" value="<%=blog.title%>" name="title" class="form-control" id="usr" required>
+						</div>
+						<div class="col-md-6">
+							<label for="materialContactFormMessage">Description:</label>
+							<textarea id="materialContactFormMessage" name="description" class="form-control md-textarea" rows="3" required><%=blog.description%></textarea>
+						</div>
+						<div class="col-md-1">
+							<label for="usr"></label>
+							<input type="hidden" value="<%= blog.id %>" name="id">
+							<input type="hidden" value="<%= blog.imageUrl %>" name="image_url">
+							<button class="btn btn-send btn-outline-info btn-rounded btn-block z-depth-0 my-4 waves-effect" type="submit">Edit</button>
+						</div>
+					</form>
+					</div>
+					<% }else{ %>
+					<!-- no page-->
+					<h1>No page found</h1>
+					<% } %>
+			</div>
+		</div>
+	</section>
+	<!-- end About section-->
+	<!-- footer section-->
+	<footer class="text-center">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<p>
+						Copyright &copy 2019 All Rights Reserved by <span> SUDIPTA DAS</span>
+					</p>
+				</div>
+			</div>
+		</div>
+	</footer>
+	<!--end footer section-->
+	<!--jQuery-->
+	<script src="/js/jquery.js"></script>
+	<!--bootstarp-->
+	<script src="/js/033%20bootstrap.js"></script>
+	<!--way point-->
+	<script src="/js/jquery.waypoints.min.js"></script>
+	<!--owl carousel-->
+	<script src="/js/owl.carousel.min.js"></script>
+	<!-- smooth scroll jquery easy plagin-->
+	<script src="/js/130%20jquery.easing.1.3.js"></script>
+	<!--wow -->
+	<script src="/js/wow.min.js"></script>
+	<!-- main js-->
+	<script src="/js/main.js"></script>
+
+</body>
+
+</html>

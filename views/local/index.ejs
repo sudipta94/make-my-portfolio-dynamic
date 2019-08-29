@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<!-- importent meta tags-->
+	<meta charset="utf-8">
+	<meta http-equiv="Content-Type" content="text/html; charset = utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- Title-->
+	<title>Sudipta's portal</title>
+	<!-- icon-->
+	<link rel="icon" href="/pic/icon.ico">
+	<!-- bootstrap-->
+	<link rel="stylesheet" href="/css/033%20bootstrap.css">
+	<!--font awasome-->
+	<link rel="stylesheet" href="/css/font-awesome/css/font-awesome.min.css">
+	<!--google font-->
+	<link href="https://fonts.googleapis.com/css?family=Bree+Serif|Indie+Flower|Varela+Round&display=swap" rel="stylesheet">
+	<!--owl carousel-->
+	<link href="/css/owl.carousel.min.css " rel="stylesheet">
+	<link href="/css/owl.theme.default.min.css" rel="stylesheet">
+	<!-- main css-->
+	<link rel="stylesheet" href="/css/main.css">
+	<!--responsive-->
+	<link rel="stylesheet" href="/css/responsive.css">
+	<!--animation-->
+	<link rel="stylesheet" href="css/animate.css">
+
+
+</head>
+
+<body data-spy="scroll" data-target=".navbar" data-offset="65">
+	<!--loding-->
+	<div id="loding">
+		<div id="status">
+			&nbsp;
+		</div>
+	</div>
+	<!--end loding-->
+	<!--navigation bar-->
+	<header>
+		<nav class="navbar navbar-fixed-top">
+			<div class="container-fluid">
+				<div class="site-nav-wrapper">
+					<div class="navbar-header">
+						<!--mobile menu open Button-->
+						<span id="mobile-nav-open-btn">&#9776</span>
+						<!-- logo-->
+						<h1></h1>
+					</div>
+					<div class="container">
+						<div class="collapse navbar-collapse">
+							<ul class="nav navbar-nav pull-right">
+								<li><a class="Smooth-scroll" href="#home">Home</a></li>
+								<li><a class="Smooth-scroll" href="#about">About</a></li>
+								<li><a class="Smooth-scroll" href="#project">Project</a></li>
+								<li><a class="Smooth-scroll" href="#blog">Blog</a></li>
+								<li><a class="Smooth-scroll" href="#contact">Contact</a></li>
+							</ul>
+						</div>
+					</div>
+					<!--mobile menu-->
+					<div id="mobile-nav">
+						<span id="mobile-nav-close-btn">&times;</span>
+						<div id="mobile-nav-content">
+							<ul class="nav">
+								<li><a class="Smooth-scroll" href="#home">Home</a></li>
+								<li><a class="Smooth-scroll" href="#about">About</a></li>
+								<li><a class="Smooth-scroll" href="#project">Project</a></li>
+								<li><a class="Smooth-scroll" href="#blog">Blog</a></li>
+								<li><a class="Smooth-scroll" href="#contact">Contact</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</nav>
+	</header>
+	<!--end navigation bar-->
+	<!-- Home section-->
+	<section id="home">
+		<!-- background video-->
+		<video id="home-bg-video" poster="/video/Words.jpg" autoplay loop muted>
+			<source src="/video/Words.mp4" type="video/mp4">
+			<source src="/video/Words.ogv" type="video/ogv">
+			<source src="/video/Words.webm" type="videowebm">
+		</video>
+		<!--end background video-->
+		<!-- Home overlay-->
+		<div id="home_overlay">
+
+		</div>
+		<!--end Home overlay-->
+		<!-- Home above contain-->
+		<div id="home-contain">
+			<div id="home-contain-inner" class="text-center">
+				<div id="home_heading">
+					
+					<h1 id="home-heading-1">Hello,I'm <span>Sudipta Das.</span><br>I'm a Computer Engineer</h1>
+				</div>
+				<div id="home-btn">
+					<a class="btn btn-general btn-home Smooth-scroll" href="#about" title="Know me" role="button">Know me</a>
+				</div>
+			</div>
+		</div>
+		<!--end Home above contain-->
+		<!--down arrow-->
+		<a href="#about" id="down-arrow" class="Smooth-scroll">
+			<i class="fa fa-angle-down"></i>
+		</a>
+		<!--end down arrow-->
+		<div id="border-strip"></div>
+	</section>
+	<!--end Home section-->
+	<!-- About section-->
+	<section id="about">
+		<div class="content-box-lg">
+			<div class="container wow slideInLeft">
+				<div class="row ">
+					<div class="col-md-12" id="about_hr">
+						<h2 id="aboutt">About</h2>
+						<hr>
+					</div>
+				</div>
+			</div>
+			<div class="container wow slideInRight" id="about_sub">
+				<div class="row">
+					<!-- column 1-->
+					<div class="col-md-4">
+						<div>
+							<div id="profile_pic">
+								<picture>
+									<img src="<%= about.profile_pic%>" class="rounded-circle" alt="...">
+								</picture>
+							</div>
+							<h3>Objective</h3>
+							<hr>
+							<p id="obj" class="text-left"><%=about.objective%></p>
+						</div>
+					</div>
+					<!-- column 2-->
+					<div class="col-md-4">
+						<div row>
+							<h3 id="education">Education/ Exprience <i class="fa fa-university"></i></h3>
+							<hr>
+							<% for (let edu of education) { %>
+							<div id="degree">
+								<h6><%= edu.degree %></h6>
+								<p><%= edu.clg_name %></p>
+							</div>
+							<% } %>
+						</div>
+					</div>
+					<!-- column 3-->
+					<div class="col-md-4" id="progress_bar_element">
+						<h3>Skill <i class="fa fa-hand-peace-o"></i></h3>
+						<hr>
+						<% for (let skil of skill) { %>
+						<h6 id="bar_nm"><%= skil.sk %></h6>
+						<div class="progress">
+							<div class="progress-bar" role="progressbar" style="width: 0%" aria-valuenow="<%=skil.value%>" aria-valuemin="0" aria-valuemax="100"><span><%=skil.value%></span></div>
+						</div>
+						<% } %>
+						<p id="skill_obj" class="text-left"><%=about.skill_note%></p>
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- end About section-->
+	<!-- poject section-->
+	<section id="project">
+		<div class="content-box-lg">
+			<div class="container">
+				<div class="row wow zoomIn">
+					<div class="col-md-12 project_hr">
+						<h3>Projects</h3>
+						<hr>
+					</div>
+				</div>
+			</div>
+			<div class="container wow lightSpeedIn">
+				<div class="row">
+				<% for (let proj of project) { %>
+					<div class="col-md-4 porject_pad">
+						<div class="container project">
+							<img src="<%=proj.project_pic%>" id="project_img">
+							<div class="project_overlay">
+								<div id="home-btn-project">
+									<h5><%=proj.project_name%></h5>
+									<p><%=proj.project_details%></p>
+									<a class="btn btn-general btn-home" href="<%=proj.project_link%>" title="Know me" role="button">Learn more</a>
+								</div>
+							</div>
+						</div>
+					</div>
+					<% } %>
+				</div>
+			</div>
+		</div>
+		<div id="border-strip"></div>
+	</section>
+	<!-- Quotes section-->
+	<section id="quotes">
+		<div class="content-box-lg">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12">
+						<div id="quotes_statement" class="text-center">
+							<h3><i class="fa fa-quote-left"></i> Engineers like to solve problems. If there are no problems handily available, they will create their own problems <i class="fa fa-quote-right"></i></h3>
+							<p>― Scott Adams</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!--end quotes section-->
+	<!--blog section-->
+	<section id="blog" class="blog">
+		<div class="content-box-lg blogger" id="blogg">
+			<div class="container">
+				<div class="row wow zoomIn">
+					<div class="col-md-12 project_hr hr">
+						<h1>Blog</h1>
+						<hr>
+					</div>
+				</div>
+				<div class="row wow zoomIn">
+					<div class="col-md-12">
+						<div class="owl-carousel owl-theme">
+							<% for (let blogs of blog) { %>
+							<div class="item">
+								<div class="bloges">
+									<div class="bloges col-md-5">
+										<div class="row">
+											<div class="col-md-6" id="blog_pic">
+												<picture>
+													<img src="<%=blogs.imageUrl%>" class="rounded-circle" alt="...">
+												</picture>	
+											</div>
+											<div class="col-md-6">
+												<h3><%=blogs.title%> </h3>
+											</div>
+										</div>
+										<div class="row">
+											<div class="col-md-12">
+												<p><%=blogs.description%></p>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<% } %>	
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="border-strip"></div>
+	</section>
+	<!-- end blog section-->
+	<!--contact me -->
+	<section id="contact">
+		<div class="content-box-lg">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-6">
+						<div id="contactt" class="wow slideInLeft">
+							<!-- Material form contact -->
+							<div class="card">
+								<h5 class="card-header info-color white-text text-center py-4">
+									<strong>Contact me</strong>
+								</h5>
+								<h6>Have a question or want to work together?</h6>
+								<% if(pop_status) { %>
+								<h6 style ="color:red"><%= pop_msg %></h6>
+								<% } %>
+								<!--Card content-->
+								<div class="card-body px-lg-5 pt-0" id="form">
+									<!-- Form -->
+									<form class="text-center" action="./contact" method="POST">
+										<!-- Name -->
+										<div class="md-form mt-3">
+											<input type="text" name="name" id="materialContactFormName" class="form-control" required>
+											<label class="form-check-label" for="materialContactFormName">Name</label>
+										</div>
+										<!-- E-mail -->
+										<div class="md-form">
+											<input type="email" name="email" id="materialContactFormEmail" class="form-control" required>
+											<label class="form-check-label" for="materialContactFormEmail">E-mail</label>
+										</div>
+										<!--Message-->
+										<div class="md-form">
+											<textarea id="materialContactFormMessage" name="message" class="form-control md-textarea" rows="3" required></textarea>
+											<label class="form-check-label" for="materialContactFormMessage">Message</label>
+										</div>
+										<!-- Copy -->
+										<div class="form-check">
+											<input type="checkbox" name="cheak_for_email" class="form-check-input" id="materialContactFormCopy">
+											<label class="form-check-label" for="materialContactFormCopy">Send me a copy of this message</label>
+										</div>
+										<!-- Send button -->
+										<button class="btn btn-send btn-outline-info btn-rounded btn-block z-depth-0 my-4 waves-effect" type="submit">Send</button>
+									</form>
+									<!-- Form -->
+
+								</div>
+
+							</div>
+							<!-- Material form contact -->
+						</div>
+					</div>
+					<div class="col-md-6 wow slideInRight" id="social">
+						<h4>Connect with Me on Social Media</h4>
+						<hr>
+						<div>
+							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi, tempore id inventore maxime aliquid officiis eius magni.</p>
+							<ul class="social-list">
+								<li><a href="https://www.facebook.com/sudipto94"> <i class="fa fa-facebook-square fa-3x"></i></a></li>
+								<li><a href="https://twitter.com/sidsudiptosid"> <i class="fa fa-twitter fa-3x"></i></a></li>
+								<li><a href="https://www.instagram.com/its_sid_here_guys/?hl=en"> <i class="fa fa-instagram fa-3x"></i></a></li>
+								<li><a href="https://github.com/sudipta94"> <i class="fa fa-github-square fa-3x"></i></a></li>
+								<li><a href="https://www.linkedin.com/in/sudipta-das-49377155/"> <i class="fa fa-linkedin fa-3x"></i></a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!--end contact me -->
+	<!-- footer section-->
+	<footer class="text-center">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<p>
+						Copyright &copy 2019 All Rights Reserved by <span> SUDIPTA DAS</span>
+					</p>
+				</div>
+			</div>
+		</div>
+	</footer>
+	<!--end footer section-->
+	<!--jQuery-->
+	<script src="/js/jquery.js"></script>
+	<!--bootstarp-->
+	<script src="/js/033%20bootstrap.js"></script>
+	<!--way point-->
+	<script src="/js/jquery.waypoints.min.js"></script>
+	<!--owl carousel-->
+	<script src="/js/owl.carousel.min.js"></script>
+	<!-- smooth scroll jquery easy plagin-->
+	<script src="/js/130%20jquery.easing.1.3.js"></script>
+	<!--wow -->
+	<script src="/js/wow.min.js"></script>
+	<!-- main js-->
+	<script src="/js/main.js"></script>
+
+</body>
+
+</html>
